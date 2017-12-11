@@ -1,3 +1,4 @@
+
 package unitec.org.sistemaescolar;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,41 +10,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 /*
  * @author YOO
  */
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
-public class ControladorAlumnos {
-
+public class ControladorCursoAlumno {
     @Autowired
-    RepositorioAlumnos repoAlum;
+    RepositorioCursoAlumno repoCursoA;
 
     //Aquí a continuación van las cinco operaciones básicas con la entidad mensaje.
     
     //Metodo GET: Buscar Todos
     @CrossOrigin
-    @RequestMapping(value = "/alumnos", method = RequestMethod.GET, headers = {"Accept=application/json"})
-    public ArrayList<Alumnos> obtenerTodos() throws Exception {
-        return (ArrayList<Alumnos>) repoAlum.findAll();
+    @RequestMapping(value = "/curso", method = RequestMethod.GET, headers = {"Accept=application/json"})
+    public ArrayList<CursoAlumno> obtenerTodos() throws Exception {
+        return (ArrayList<CursoAlumno>) repoCursoA.findAll();
     }
 
     //Metodo GET: Buscar por ID
     @CrossOrigin
-    @RequestMapping(value = "/alumnos/{id}", method = RequestMethod.GET, headers = {"Accept=application/json"})
-    public Alumnos obtenerPorId(@PathVariable Integer id) throws Exception {
-        return repoAlum.findOne(id);
+    @RequestMapping(value = "/curso/{id}", method = RequestMethod.GET, headers = {"Accept=application/json"})
+    public CursoAlumno obtenerPorId(@PathVariable String id) throws Exception {
+        return repoCursoA.findOne(id);
     }
 
     //Metodo POST: Guardar pero es una version mas pura y efectiva
     @CrossOrigin
-    @RequestMapping(value = "/alumnos", method = RequestMethod.POST, headers = {"Accept=application/json"})
-    public Estatus guardarAlumno(@RequestBody String json) throws Exception {
+    @RequestMapping(value = "/curso", method = RequestMethod.POST, headers = {"Accept=application/json"})
+    public Estatus guardarCurso(@RequestBody String json) throws Exception {
         //Tranformamos el json a objeto Java
         ObjectMapper maper = new ObjectMapper();
-        Alumnos mensa = maper.readValue(json, Alumnos.class);
-        repoAlum.save(mensa);
+        CursoAlumno curso = maper.readValue(json, CursoAlumno.class);
+        repoCursoA.save(curso);
         Estatus es = new Estatus();
         es.setSuccess(true);
         return es;
@@ -51,12 +52,12 @@ public class ControladorAlumnos {
 
     //Métoddo PUT: Actualizar
     @CrossOrigin
-    @RequestMapping(value = "/alumnos", method = RequestMethod.PUT, headers = {"Accept=application/json"})
-    public Estatus actualizarAlumno(@RequestBody String json) throws Exception {
+    @RequestMapping(value = "/curso", method = RequestMethod.PUT, headers = {"Accept=application/json"})
+    public Estatus actualizarCurso(@RequestBody String json) throws Exception {
         //Tranformamos el json a objeto Java
         ObjectMapper maper = new ObjectMapper();
-        Alumnos alumno = maper.readValue(json, Alumnos.class);
-        repoAlum.save(alumno);
+        CursoAlumno curso = maper.readValue(json, CursoAlumno.class);
+        repoCursoA.save(curso);
         Estatus es = new Estatus();
         es.setSuccess(true);
         return es;
@@ -64,9 +65,9 @@ public class ControladorAlumnos {
 
     //Metodo DELETE. Borrar
     @CrossOrigin
-    @RequestMapping(value = "/alumnos/{id}", method = RequestMethod.DELETE, headers = {"Accept=application/json"})
-    public Estatus borrarAlumno(@PathVariable Integer id) throws Exception {
-        repoAlum.delete(id);
+    @RequestMapping(value = "/curso/{id}", method = RequestMethod.DELETE, headers = {"Accept=application/json"})
+    public Estatus borrarCurso(@PathVariable String id) throws Exception {
+        repoCursoA.delete(id);
         Estatus es = new Estatus();
         es.setSuccess(true);
         return es;
