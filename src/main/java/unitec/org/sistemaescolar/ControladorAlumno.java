@@ -1,7 +1,7 @@
 package unitec.org.sistemaescolar;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.ArrayList;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,14 +25,14 @@ public class ControladorAlumno {
     //Metodo GET: Buscar Todos
     @CrossOrigin
     @RequestMapping(value = "/alumno", method = RequestMethod.GET, headers = {"Accept=application/json"})
-    public ArrayList<Alumno> obtenerTodos() throws Exception {
-        return (ArrayList<Alumno>) repoAlum.findAll();
+    public List<Alumno> obtenerTodos() throws Exception {
+        return (List<Alumno>) repoAlum.findAll();
     }
 
     //Metodo GET: Buscar por ID
     @CrossOrigin
     @RequestMapping(value = "/alumno/{id}", method = RequestMethod.GET, headers = {"Accept=application/json"})
-    public Alumno obtenerPorId(@PathVariable Integer id) throws Exception {
+    public Alumno obtenerPorId(@PathVariable String id) throws Exception {
         return repoAlum.findOne(id);
     }
 
@@ -65,7 +65,7 @@ public class ControladorAlumno {
     //Metodo DELETE. Borrar
     @CrossOrigin
     @RequestMapping(value = "/alumno/{id}", method = RequestMethod.DELETE, headers = {"Accept=application/json"})
-    public Estatus borrarAlumno(@PathVariable Integer id) throws Exception {
+    public Estatus borrarAlumno(@PathVariable String id) throws Exception {
         repoAlum.delete(id);
         Estatus es = new Estatus();
         es.setSuccess(true);

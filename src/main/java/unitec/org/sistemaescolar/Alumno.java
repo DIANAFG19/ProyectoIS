@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
  */
 public class Alumno {
     @Id
-    private int Id_A;
+    private String Id_A;
     
     private String Nombre;
     private String Apellido_Paterno;
@@ -30,11 +30,11 @@ public class Alumno {
         this.T_Alumno = T_Alumno;
     }
 
-    public Alumno(int Id_A) {
+    public Alumno(String Id_A) {
         this.Id_A = Id_A;
     }
 
-    public Alumno(int Id_A, String Nombre, String Apellido_Paterno, String Apellido_Materno, String Edad, String Telefono_Casa, String Telefono_Celular, String Correo_Electronico, String Contraseña, String T_Alumno) {
+    public Alumno(String Id_A, String Nombre, String Apellido_Paterno, String Apellido_Materno, String Edad, String Telefono_Casa, String Telefono_Celular, String Correo_Electronico, String Contraseña, String T_Alumno) {
         this.Id_A = Id_A;
         this.Nombre = Nombre;
         this.Apellido_Paterno = Apellido_Paterno;
@@ -50,11 +50,11 @@ public class Alumno {
     public Alumno() {
     }
 
-    public int getId_A() {
+    public String getId_A() {
         return Id_A;
     }
 
-    public void setId_A(int Id_A) {
+    public void setId_A(String Id_A) {
         this.Id_A = Id_A;
     }
 
