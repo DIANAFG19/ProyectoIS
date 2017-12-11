@@ -32,7 +32,7 @@ public class ControladorProfesor {
     //Metodo GET: Buscar por ID
     @CrossOrigin
     @RequestMapping(value = "/profesor/{id}", method = RequestMethod.GET, headers = {"Accept=application/json"})
-    public Profesor obtenerPorId(@PathVariable Integer id) throws Exception {
+    public Profesor obtenerPorId(@PathVariable String id) throws Exception {
         return repoProfe.findOne(id);
     }
 
@@ -65,7 +65,7 @@ public class ControladorProfesor {
     //Metodo DELETE. Borrar
     @CrossOrigin
     @RequestMapping(value = "/profesor/{id}", method = RequestMethod.DELETE, headers = {"Accept=application/json"})
-    public Estatus borrarProfesor(@PathVariable Integer id) throws Exception {
+    public Estatus borrarProfesor(@PathVariable String id) throws Exception {
         repoProfe.delete(id);
         Estatus es = new Estatus();
         es.setSuccess(true);

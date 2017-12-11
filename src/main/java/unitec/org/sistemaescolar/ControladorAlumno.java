@@ -42,8 +42,8 @@ public class ControladorAlumno {
     public Estatus guardarAlumno(@RequestBody String json) throws Exception {
         //Tranformamos el json a objeto Java
         ObjectMapper maper = new ObjectMapper();
-        Alumno mensa = maper.readValue(json, Alumno.class);
-        repoAlum.save(mensa);
+        Alumno alumno = maper.readValue(json, Alumno.class);
+        repoAlum.save(alumno);
         Estatus es = new Estatus();
         es.setSuccess(true);
         return es;

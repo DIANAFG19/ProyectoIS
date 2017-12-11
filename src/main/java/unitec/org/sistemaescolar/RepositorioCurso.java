@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 /*
  * @author YOO
-*/
-public interface RepositorioProfesor extends MongoRepository<Profesor,String>{
+ */
+public interface RepositorioCurso extends MongoRepository<Curso,String>{
     
 }

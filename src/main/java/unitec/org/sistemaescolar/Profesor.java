@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
  */
 public class Profesor {
     @Id
-    private int Id_P;
+    private String Id_P;
     
     private String t_profesor;
     private String Nombre;
@@ -30,11 +30,11 @@ public class Profesor {
         this.contraseña = contraseña;
     }
 
-    public Profesor(int Id_P) {
+    public Profesor(String Id_P) {
         this.Id_P = Id_P;
     }
 
-    public Profesor(int Id_P, String t_profesor, String Nombre, String APaterno, String AMaterno, String fecha_nac, String Telefono, String email, String contraseña) {
+    public Profesor(String Id_P, String t_profesor, String Nombre, String APaterno, String AMaterno, String fecha_nac, String Telefono, String email, String contraseña) {
         this.Id_P = Id_P;
         this.t_profesor = t_profesor;
         this.Nombre = Nombre;
@@ -49,11 +49,11 @@ public class Profesor {
     public Profesor() {
     }
 
-    public int getId_P() {
+    public String getId_P() {
         return Id_P;
     }
 
-    public void setId_P(int Id_P) {
+    public void setId_P(String Id_P) {
         this.Id_P = Id_P;
     }
 
