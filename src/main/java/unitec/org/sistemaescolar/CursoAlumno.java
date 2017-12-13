@@ -8,15 +8,13 @@ public class CursoAlumno {
     
     private String Grupo;
     private int Id_A;
-    private int Id_P;
     private float Promedio;
 
     public CursoAlumno() {
     }
 
-    public CursoAlumno(int Id_A, int Id_P, String Grupo, float Promedio) {
+    public CursoAlumno(int Id_A, String Grupo, float Promedio) {
         this.Id_A = Id_A;
-        this.Id_P = Id_P;
         this.Grupo = Grupo;
         this.Promedio = Promedio;
     }
@@ -27,14 +25,6 @@ public class CursoAlumno {
 
     public void setId_A(int Id_A) {
         this.Id_A = Id_A;
-    }
-
-    public int getId_P() {
-        return Id_P;
-    }
-
-    public void setId_P(int Id_P) {
-        this.Id_P = Id_P;
     }
 
     public String getGrupo() {

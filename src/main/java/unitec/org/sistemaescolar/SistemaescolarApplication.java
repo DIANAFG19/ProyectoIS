@@ -19,7 +19,7 @@ public class SistemaescolarApplication implements CommandLineRunner{
     public void run(String... strings) throws Exception {
         /*Curso curso = new Curso("2564", "256", "JAVA", "PROGRAMACION", "20 Junio de 2017", "20 de Agosto de 2017", "1:00 pm", "Lunes y Jueves", 1500, "5", "10");
         repoCurso.save(curso);*/
-        /*CursoAlumno cursoAlumno = new CursoAlumno(65164, 4564, "rv46v", 5.8f);
-        repoCursoAlumno.save(cursoAlumno);*/
+        CursoAlumno cursoAlumno = new CursoAlumno(486541896, "8946", 8.5f);
+        repoCursoAlumno.save(cursoAlumno);
     }   
 }
